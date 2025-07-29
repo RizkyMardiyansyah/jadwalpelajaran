@@ -41,9 +41,9 @@
   </div>
 
   <div class="menu-links mb-4">
-    <a href="#" class="btn btn-primary" onclick="showTodaySchedule()">Hari Ini</a>
-    <a href="#" class="btn btn-outline-primary" onclick="showAllSchedule()">Jadwal Lengkap</a>
-  </div>
+    <a href="#" id="btnToday" class="btn btn-primary" onclick="showTodaySchedule()">Hari Ini</a>
+    <a href="#" id="btnAll" class="btn btn-outline-primary" onclick="showAllSchedule()">Jadwal Lengkap</a>
+  </div>  
 
   <div id="nearest-schedule" class="mb-4"></div>
   <div id="schedule-container"></div>
@@ -187,16 +187,26 @@ function renderSchedule(day) {
 
 
 function showTodaySchedule() {
-  const today = dayMap[new Date().getDay()];
-  document.getElementById('schedule-container').innerHTML = '';
-  renderSchedule(today);
+    document.getElementById("btnToday").classList.add("btn-primary");
+    document.getElementById("btnToday").classList.remove("btn-outline-primary");
+    document.getElementById("btnAll").classList.add("btn-outline-primary");
+    document.getElementById("btnAll").classList.remove("btn-primary");
+    const today = dayMap[new Date().getDay()];
+    document.getElementById('schedule-container').innerHTML = '';
+    renderSchedule(today);
+
+    
 }
 
 function showAllSchedule() {
-  document.getElementById('schedule-container').innerHTML = '';
-  for (const day in scheduleData) {
-    renderSchedule(day);
-  }
+    document.getElementById("btnAll").classList.add("btn-primary");
+    document.getElementById("btnAll").classList.remove("btn-outline-primary");
+    document.getElementById("btnToday").classList.add("btn-outline-primary");
+    document.getElementById("btnToday").classList.remove("btn-primary");
+    document.getElementById('schedule-container').innerHTML = '';
+    for (const day in scheduleData) {
+        renderSchedule(day);
+    }
 }
 
 function findNearestSchedule() {
@@ -243,5 +253,7 @@ showTodaySchedule();
 findNearestSchedule();
 setInterval(updateTime, 60000);
 </script>
+
+  
 </body>
 </html>
