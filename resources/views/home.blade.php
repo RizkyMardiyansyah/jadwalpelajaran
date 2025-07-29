@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Jadwal Pelajaran</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
   <style>
     body {
       background: #f5f7fa;
@@ -31,6 +33,7 @@
     .menu-links a {
       margin-right: 10px;
     }
+    
   </style>
 </head>
 <body>
@@ -40,10 +43,19 @@
     <p id="current-time">Waktu sekarang: --:--</p>
   </div>
 
-  <div class="menu-links mb-4">
-    <a href="#" id="btnToday" class="btn btn-primary" onclick="showTodaySchedule()">Hari Ini</a>
-    <a href="#" id="btnAll" class="btn btn-outline-primary" onclick="showAllSchedule()">Jadwal Lengkap</a>
-  </div>  
+  <div class="row mb-4">
+    <div class="col-6">
+      <a href="#" id="btnToday" class="btn btn-primary w-100" onclick="showTodaySchedule()">
+        <i class="bi bi-calendar-check me-1"></i> Hari Ini
+      </a>
+    </div>
+    <div class="col-6">
+      <a href="#" id="btnAll" class="btn btn-outline-primary w-100" onclick="showAllSchedule()">
+        <i class="bi bi-calendar-week me-1"></i> Jadwal Lengkap
+      </a>
+    </div>
+  </div>
+   
 
   <div id="nearest-schedule" class="mb-4"></div>
   <div id="schedule-container"></div>
