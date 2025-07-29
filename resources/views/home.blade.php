@@ -66,34 +66,35 @@
 
 <script>
 const scheduleData = {
-  "Senin": [
-    { jam: "1, 2, 3", mapel: "Geografi", guru: "Darmayetti, S.Pd." },
-    { jam: "4, 5", mapel: "Seni Budaya", guru: "Dra. Zofrilda" },
-    { jam: "6, 7", mapel: "Kewirausahaan", guru: "Laridho Syahmitra, S.Pd., Gr" },
-    { jam: "8, 9, 10", mapel: "Biologi", guru: "Lili Fitriyanti, S.Pd." }
-  ],
-  "Selasa": [
-    { jam: "1, 2, 3", mapel: "Sejarah", guru: "Silvani, S.Pd." },
-    { jam: "4", mapel: "Bahasa Indonesia", guru: "Esya Yunisra Asiz, S.Pd." },
-    { jam: "5, 6, 7", mapel: "Sosiologi", guru: "Muhammad Harz Ardyani" },
-    { jam: "8, 9, 10", mapel: "Fisika", guru: "Dra. Titi Utami" }
-  ],
-  "Rabu": [
-    { jam: "1, 2, 3", mapel: "Kimia", guru: "Verawati, S.Pd." },
-    { jam: "4", mapel: "BK", guru: "Pradefitani, S.Pd" },
-    { jam: "5, 6, 7", mapel: "PJOK", guru: "Irfan Saputra, S.Pd." },
-    { jam: "8, 9, 10", mapel: "PAI", guru: "Ratna Wulis, M.Pd.I" }
-  ],
-  "Kamis": [
-    { jam: "1, 2", mapel: "TIK", guru: "Resmawati, S.Pd" },
-    { jam: "3, 4", mapel: "PPKn", guru: "Irfan Saputra, S.Pd." },
-    { jam: "5, 6, 7", mapel: "Bahasa Indonesia", guru: "Esya Yunisra Asiz, S.Pd." },
-    { jam: "8, 9, 10", mapel: "Ekonomi", guru: "Yumairera, SE" }
-  ],
-  "Jumat": [
-    { jam: "1, 2, 3", mapel: "Bahasa Inggris", guru: "Desi Rafiani, S.Pd., Gr./GTT" },
-    { jam: "4, 5, 6, 7", mapel: "MTK", guru: "Yuni Hardianty Hamzon, S.Pd." }
-  ]
+    "Senin": [
+    { jam: "1, 2, 3", mapel: "Biologi", guru: "Fedri Adriani, S.Pd. (FA)" },
+    { jam: "4, 5, 6", mapel: "PJOK", guru: "Irfan Saputra, S.Pd. (IP)" },
+    { jam: "7, 8", mapel: "Bahasa Indonesia", guru: "Mimi Ovi Saputri, S.Pd. (MM)" },
+    { jam: "9, 10", mapel: "Seni Budaya", guru: "Geni Arini Pangestuti, S.Pd. (GP)" }
+    ],
+    "Selasa": [
+    { jam: "1, 2", mapel: "TIK", guru: "Jirnawati, S.Kom., M.Pd.T. (JR)" },
+    { jam: "3, 4", mapel: "Bahasa Indonesia", guru: "Mimi Ovi Saputri, S.Pd. (MM)" },
+    { jam: "5, 6, 7", mapel: "Sejarah", guru: "Trisna Wahyuni, S.Pd. (TW)" },
+    { jam: "8, 9, 10", mapel: "Kimia", guru: "Dra. Hj. Yemmi Surianti (YT)" }
+    ],
+    "Rabu": [
+    { jam: "1, 2, 3", mapel: "Geografi", guru: "Darmayetti, S.Pd. (DM)" },
+    { jam: "4, 5", mapel: "Keminang Kabauan", guru: "Dra. Zofrilda (ZD)" },
+    { jam: "6, 7", mapel: "PKN", guru: "Irfan Saputra, S.Pd. (IS)" },
+    { jam: "8, 9, 10", mapel: "PAI", guru: "Nasiruddin, S.Pd. (NS)" }
+    ],
+    "Kamis": [
+    { jam: "1, 2, 3", mapel: "Sosiologi", guru: "M. Hafiz Ardyanli (HF)" },
+    { jam: "4, 5, 6", mapel: "Bahasa Inggris", guru: "Dra. Wilmahati (WL)" },
+    { jam: "7, 8, 9, 10", mapel: "Ekonomi", guru: "-" }
+    ],
+    "Jumat": [
+    { jam: "1, 2, 3", mapel: "Ekonomi", guru: "Yuliana Siska, S.Pd., M.M. (YS)" },
+    { jam: "4, 5, 6", mapel: "Fisika", guru: "Dra. Yunarse (YU)" },
+    { jam: "7", mapel: "BK", guru: "Ayu Armayanti, S.Pd. (AT)" }
+    ]
+
 };
 
 const timeSlot = {
@@ -132,9 +133,9 @@ function updateTime() {
   const minute = now.getMinutes().toString().padStart(2, '0');
   document.getElementById('current-time').innerText = `Waktu sekarang: ${hour}:${minute}`;
   document.getElementById('greeting-text').innerText =
-    hour < 10 ? "Selamat pagi!" :
-    hour < 15 ? "Selamat siang!" :
-    hour < 18 ? "Selamat sore!" : "Selamat malam!";
+    hour < 10 ? "Selamat pagi, Ririn." :
+    hour < 15 ? "Selamat siang, Ririn." :
+    hour < 18 ? "Selamat sore, Ririn." : "Selamat malam, Ririn.";
 }
 
 function getTime(jamStr, day) {
@@ -158,6 +159,19 @@ function getTime(jamStr, day) {
   }
   return result.join(', ');
 }
+function getMorningActivity(day) {
+  if (day === "Senin") {
+    return [
+      { label: "Upacara", time: "06.55 - 07.45" }
+    ];
+  } else if (["Selasa", "Rabu", "Kamis"].includes(day)) {
+    return [{ label: "Literasi", time: "06.55 - 07.10" }];
+  } else if (day === "Jumat") {
+    return [{ label: "Kultum", time: "06.55 - 07.45" }];
+  }
+  return [];
+}
+
 
 function renderSchedule(day) {
   const lessons = scheduleData[day];
@@ -165,6 +179,17 @@ function renderSchedule(day) {
   card.className = 'card mb-3 day-card';
   const listItems = [];
 
+  // Tambah kegiatan pagi
+  const morningActivities = getMorningActivity(day);
+  morningActivities.forEach(activity => {
+    listItems.push(`
+      <li class="list-group-item bg-light text-center">
+        <em>${activity.label} (${activity.time})</em>
+      </li>
+    `);
+  });
+
+  // Tambah jadwal pelajaran
   lessons.forEach((lesson, index) => {
     listItems.push(`
       <li class="list-group-item schedule-item">
@@ -196,6 +221,7 @@ function renderSchedule(day) {
   `;
   document.getElementById('schedule-container').appendChild(card);
 }
+
 
 
 function showTodaySchedule() {
