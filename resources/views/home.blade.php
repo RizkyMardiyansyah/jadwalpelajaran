@@ -87,7 +87,7 @@ const scheduleData = {
     "Kamis": [
     { jam: "1, 2, 3", mapel: "Sosiologi", guru: "M. Hafiz Ardyanli (HF)" },
     { jam: "4, 5, 6", mapel: "Bahasa Inggris", guru: "Dra. Wilmahati (WL)" },
-    { jam: "7, 8, 9, 10", mapel: "Matematika", guru: "-" }
+    { jam: "7, 8, 9, 10", mapel: "Matematika", guru: "Linda Gustina, s.pd (LG)" }
     ],
     "Jumat": [
     { jam: "1, 2, 3", mapel: "Ekonomi", guru: "Yuliana Siska, S.Pd., M.M. (YS)" },
