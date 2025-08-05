@@ -133,9 +133,9 @@ function updateTime() {
   const minute = now.getMinutes().toString().padStart(2, '0');
   document.getElementById('current-time').innerText = `Waktu sekarang: ${hour}:${minute}`;
   document.getElementById('greeting-text').innerText =
-    hour < 10 ? "Selamat pagi, Ririn Arianti Putriansyah." :
-    hour < 15 ? "Selamat siang, Ririn Arianti Putriansyah." :
-    hour < 18 ? "Selamat sore, Ririn Arianti Putriansyah." : "Selamat malam, Ririn Arianti Putriansyah.";
+    hour < 10 ? "Selamat pagi, Ririn Ariyanti Putriansyah." :
+    hour < 15 ? "Selamat siang, Ririn Ariyanti Putriansyah." :
+    hour < 18 ? "Selamat sore, Ririn Ariyanti Putriansyah." : "Selamat malam, Ririn Ariyanti Putriansyah.";
 }
 
 function getTime(jamStr, day) {
