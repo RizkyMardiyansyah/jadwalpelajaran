@@ -131,12 +131,21 @@ function updateTime() {
   const now = new Date();
   const hour = now.getHours();
   const minute = now.getMinutes().toString().padStart(2, '0');
+
   document.getElementById('current-time').innerText = `Waktu sekarang: ${hour}:${minute}`;
+  
   document.getElementById('greeting-text').innerText =
     hour < 10 ? "Selamat pagi, Ririn Ariyanti Putriansyah." :
     hour < 15 ? "Selamat siang, Ririn Ariyanti Putriansyah." :
-    hour < 18 ? "Selamat sore, Ririn Ariyanti Putriansyah." : "Selamat malam, Ririn Ariyanti Putriansyah.";
+    hour < 18 ? "Selamat sore, Ririn Ariyanti Putriansyah." :
+    "Selamat malam, Ririn Ariyanti Putriansyah.";
 }
+
+// Update setiap detik
+setInterval(updateTime, 1000);
+
+// Jalankan sekali saat halaman dimuat
+updateTime();
 
 function getTime(jamStr, day) {
   const jamArray = jamStr.split(',').map(j => parseInt(j.trim())).sort((a, b) => a - b);
